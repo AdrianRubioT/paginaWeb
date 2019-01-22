@@ -15,7 +15,7 @@ function cargar() {
 }
 
 function allowDrop(ev) {
-    console.log(ev)
+    // console.log(ev)
     //Permitir que reciba algún elemento
     ev.preventDefault();
     if (ev.target.getAttribute("draggable") == "true")
@@ -33,6 +33,7 @@ function drag(ev) {
 
 function drop(ev) {
 
+    console.log(ev);
 
     //Evitamos el comportamiento normal del navegador, que sería abrir el elemento en una nueva pestaña.
     ev.preventDefault();
@@ -45,5 +46,15 @@ function drop(ev) {
 
 }
 
+
+function send (element) {
+    
+    peticion_http = new XMLHttpRequest();
+    peticion_http.onreadystatechange = mostrar;
+    peticion_http.open('GET', '/', true);
+    peticion_http.send(null);
+
+
+}
 
 window.addEventListener("load", cargar);
